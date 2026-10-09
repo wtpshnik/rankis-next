@@ -102,7 +102,7 @@ export function parseProduct(html: string, url: string): Product | null {
     slug,
     sku: String(prod.sku ?? ""),
     name: decode(String(prod.name ?? "")),
-    brand: decode(String(prod.brand ?? "")),
+    brand: decode(String(prod.brand ?? "")) || specs.find((s) => s.name === "Gamintojas")?.value || "",
     price,
     oldPrice: oldPrice && oldPrice > price ? oldPrice : undefined,
     inStock: String(prod.offers?.availability ?? "").endsWith("InStock"),

@@ -1,6 +1,11 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
+import { CartProvider } from "@/components/cart/CartProvider";
+import { Header } from "@/components/layout/Header";
+import { Footer } from "@/components/layout/Footer";
+import { MobileBar } from "@/components/layout/MobileBar";
+import { getNavRoots } from "@/lib/nav";
 
 const inter = Inter({ subsets: ["latin", "latin-ext"], variable: "--font-inter", display: "swap" });
 
@@ -10,9 +15,17 @@ export const metadata: Metadata = {
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
+  const roots = getNavRoots();
   return (
     <html lang="lt" className={inter.variable}>
-      <body className="min-h-screen flex flex-col">{children}</body>
+      <body className="flex min-h-screen flex-col">
+        <CartProvider>
+          <Header roots={roots} />
+          <div className="flex-1">{children}</div>
+          <Footer />
+          <MobileBar roots={roots} />
+        </CartProvider>
+      </body>
     </html>
   );
 }

@@ -12,4 +12,5 @@ export type Product = {
   description: string;
   specs: { name: string; value: string }[];
   categoryPath: string[]; // full category slugs, root → leaf
+  extraCategories?: string[]; // additional roots (e.g. ispardavimas) the product is listed under
 };
