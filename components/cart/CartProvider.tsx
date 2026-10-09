@@ -18,6 +18,8 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
   const [loaded, setLoaded] = useState(false);
   useEffect(() => {
     try {
+      // hydration-safe: server renders an empty cart, client loads the stored one after mount
+      // eslint-disable-next-line react-hooks/set-state-in-effect
       setItems(JSON.parse(localStorage.getItem(KEY) ?? "[]"));
     } catch {
       /* ignore corrupt storage */
