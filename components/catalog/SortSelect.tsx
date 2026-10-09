@@ -1,6 +1,6 @@
 "use client";
 import { useRouter } from "next/navigation";
-import type { ListQuery, Sort } from "@/lib/catalog";
+import type { ListQuery, Sort } from "@/lib/query";
 import { buildQuery } from "@/lib/search-params";
 import { t } from "@/lib/ui-text";
 

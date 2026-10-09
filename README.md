@@ -8,8 +8,10 @@ npm run scrape       # собрать data/categories.json и data/products.json
 npm run dev          # http://localhost:3000
 npm test             # vitest: парсеры, каталог, параметры
 npm run e2e          # playwright smoke (desktop + mobile), поднимает dev-сервер сам
-npm run build        # продакшен-сборка
+npm run build        # статический экспорт в out/ (на GitHub Pages собирается с NEXT_PUBLIC_BASE_PATH=/rankis-next)
 ```
+
+Онлайн: https://wtpshnik.github.io/rankis-next/ — деплой через GitHub Actions при пуше в master (.github/workflows/deploy.yml).
 
 Документы: `docs/superpowers/specs/` (дизайн), `docs/superpowers/plans/` (план).
 Данные читает только `lib/catalog.ts` — на этапе бэкенда заменяется на БД без правки страниц.

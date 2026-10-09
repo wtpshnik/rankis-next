@@ -30,6 +30,7 @@ test("product add to cart updates header and cart page", async ({ page }) => {
 
 test("search by word", async ({ page }) => {
   await page.goto("/search?q=makita");
+  await expect(page.locator("a[href^='/p/']").first()).toBeVisible(); // results load client-side from the index
   expect(await page.locator("a[href^='/p/']").count()).toBeGreaterThan(0);
   await page.goto("/search?q=zzzzqqqq");
   await expect(page.getByText("Nieko nerasta")).toBeVisible();

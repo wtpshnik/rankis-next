@@ -2,11 +2,13 @@
 import Link from "next/link";
 import { useState } from "react";
 import type { NavRoot } from "@/lib/nav";
+import { useNavTree } from "@/lib/nav-client";
 import { useCart } from "@/components/cart/CartProvider";
 import { CartIconSvg, ChevronDown, CloseIcon, MenuIcon, SearchIcon } from "@/components/ui/Icons";
 import { t } from "@/lib/ui-text";
 
-export function MobileBar({ roots }: { roots: NavRoot[] }) {
+export function MobileBar({ roots: initial }: { roots: NavRoot[] }) {
+  const roots = useNavTree(initial);
   const [open, setOpen] = useState(false);
   const [expanded, setExpanded] = useState<string | null>(null);
   const { count } = useCart();

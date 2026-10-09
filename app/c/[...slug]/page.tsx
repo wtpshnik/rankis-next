@@ -1,31 +1,29 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
-import { getAncestors, getBrands, getCategory, getChildren, listProducts } from "@/lib/catalog";
-import { parseListParams, type RawParams } from "@/lib/search-params";
+import { getAllCategorySlugs, getAncestors, getCategory, getCategoryCards, getChildren } from "@/lib/catalog";
 import { Breadcrumbs } from "@/components/catalog/Breadcrumbs";
-import { Filters } from "@/components/catalog/Filters";
-import { SortSelect } from "@/components/catalog/SortSelect";
-import { Pagination } from "@/components/catalog/Pagination";
-import { ProductGrid } from "@/components/catalog/ProductGrid";
-import { EmptyState } from "@/components/catalog/EmptyState";
+import { CategoryBrowser } from "@/components/catalog/CategoryBrowser";
 import { t } from "@/lib/ui-text";
 
-type Props = { params: Promise<{ slug: string[] }>; searchParams: Promise<RawParams> };
+type Props = { params: Promise<{ slug: string[] }> };
+
+export const dynamicParams = false;
+
+export function generateStaticParams() {
+  return getAllCategorySlugs().map((s) => ({ slug: s.split("/") }));
+}
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const cat = getCategory((await params).slug.join("/"));
   return { title: cat?.name ?? t.notFound };
 }
 
-export default async function CategoryPage({ params, searchParams }: Props) {
+export default async function CategoryPage({ params }: Props) {
   const slug = (await params).slug.join("/");
   const cat = getCategory(slug);
   if (!cat) notFound();
-  const q = { ...parseListParams(await searchParams), category: slug };
-  const result = listProducts(q);
   const children = getChildren(slug);
-  const brands = getBrands(slug);
   const base = `/c/${slug}`;
 
   return (
@@ -41,19 +39,7 @@ export default async function CategoryPage({ params, searchParams }: Props) {
           ))}
         </div>
       )}
-      <div className="mt-8 grid gap-8 lg:grid-cols-[240px_1fr]">
-        <Filters base={base} query={q} brands={brands} />
-        <section>
-          <div className="mb-4 flex items-center justify-between gap-4">
-            <span className="text-sm text-muted">
-              {result.total} {t.results}
-            </span>
-            <SortSelect base={base} query={q} />
-          </div>
-          {result.items.length ? <ProductGrid products={result.items} /> : <EmptyState resetHref={base} />}
-          <Pagination base={base} query={q} page={result.page} pages={result.pages} />
-        </section>
-      </div>
+      <CategoryBrowser base={base} items={getCategoryCards(slug)} />
     </main>
   );
 }

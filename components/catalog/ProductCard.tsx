@@ -1,5 +1,5 @@
 import Link from "next/link";
-import type { Product } from "@/lib/types";
+import type { CardProduct } from "@/lib/types";
 import { discountPercent } from "@/lib/format";
 import { t } from "@/lib/ui-text";
 import { Badge } from "@/components/ui/Badge";
@@ -7,14 +7,14 @@ import { Price } from "@/components/ui/Price";
 import { SafeImage } from "@/components/ui/SafeImage";
 import { AddToCart } from "@/components/product/AddToCart";
 
-export function ProductCard({ product: p }: { product: Product }) {
+export function ProductCard({ product: p }: { product: CardProduct }) {
   const pct = discountPercent(p.price, p.oldPrice);
   return (
     <div className="group relative flex flex-col rounded-card border border-line bg-white p-3 transition-colors hover:border-ink">
       <Link href={`/p/${p.slug}`} className="flex flex-1 flex-col" aria-label={p.name}>
         <div className="relative aspect-square overflow-hidden rounded-lg bg-white">
           <SafeImage
-            src={p.images[0]}
+            src={p.image}
             alt={p.name}
             fill
             sizes="(max-width: 768px) 50vw, (max-width: 1024px) 33vw, 25vw"

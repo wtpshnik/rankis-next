@@ -5,7 +5,7 @@ import { CartProvider } from "@/components/cart/CartProvider";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { MobileBar } from "@/components/layout/MobileBar";
-import { getNavRoots } from "@/lib/nav";
+import { getNavRootsShallow } from "@/lib/nav";
 
 const inter = Inter({ subsets: ["latin", "latin-ext"], variable: "--font-inter", display: "swap" });
 
@@ -15,7 +15,7 @@ export const metadata: Metadata = {
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
-  const roots = getNavRoots();
+  const roots = getNavRootsShallow();
   return (
     <html lang="lt" className={inter.variable}>
       <body className="flex min-h-screen flex-col">

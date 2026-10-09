@@ -1,5 +1,5 @@
 import Link from "next/link";
-import type { ListQuery } from "@/lib/catalog";
+import type { ListQuery } from "@/lib/query";
 import { buildQuery } from "@/lib/search-params";
 import { t } from "@/lib/ui-text";
 

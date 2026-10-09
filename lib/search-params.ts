@@ -1,4 +1,4 @@
-import type { ListQuery, Sort } from "./catalog";
+import type { ListQuery, Sort } from "./query";
 
 const SORTS: Sort[] = ["popular", "price-asc", "price-desc", "name"];
 const one = (v: string | string[] | undefined) => (Array.isArray(v) ? v[0] : v) ?? "";

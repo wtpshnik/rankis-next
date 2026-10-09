@@ -1,7 +1,7 @@
 "use client";
 import Link from "next/link";
-import { useEffect, useState } from "react";
-import type { Product } from "@/lib/types";
+import type { CardProduct } from "@/lib/types";
+import { useProductIndex } from "@/lib/product-index";
 import { useCart } from "./CartProvider";
 import { formatPrice } from "@/lib/format";
 import { Button } from "@/components/ui/Button";
@@ -12,19 +12,8 @@ import { t } from "@/lib/ui-text";
 
 export function CartTable() {
   const { items, setQty, remove } = useCart();
-  const [products, setProducts] = useState<Record<string, Product>>({});
-  const key = items.map((i) => i.slug).sort().join(",");
-
-  useEffect(() => {
-    if (!key) return;
-    const missing = key.split(",").filter((s) => !products[s]);
-    if (missing.length === 0) return;
-    fetch(`/api/cart-products?slugs=${encodeURIComponent(missing.join(","))}`)
-      .then((r) => r.json())
-      .then((list: Product[]) => setProducts((prev) => ({ ...prev, ...Object.fromEntries(list.map((p) => [p.slug, p])) })))
-      .catch(() => {});
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [key]);
+  const { items: index } = useProductIndex();
+  const products: Record<string, CardProduct> = Object.fromEntries((index ?? []).map((p) => [p.slug, p]));
 
   if (items.length === 0) {
     return (
@@ -46,7 +35,7 @@ export function CartTable() {
         {rows.map((r) => (
           <li key={r.slug} data-testid="cart-row" className="flex gap-4 p-4">
             <div className="relative h-20 w-20 shrink-0 overflow-hidden rounded-lg border border-line bg-white">
-              {r.product && <SafeImage src={r.product.images[0]} alt={r.product.name} fill sizes="80px" className="object-contain p-1" />}
+              {r.product && <SafeImage src={r.product.image} alt={r.product.name} fill sizes="80px" className="object-contain p-1" />}
             </div>
             <div className="flex min-w-0 flex-1 flex-col gap-2">
               <div className="flex items-start justify-between gap-3">

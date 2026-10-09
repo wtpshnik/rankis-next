@@ -2,10 +2,12 @@
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import type { NavRoot } from "@/lib/nav";
+import { useNavTree } from "@/lib/nav-client";
 import { ChevronRight } from "@/components/ui/Icons";
 import { t } from "@/lib/ui-text";
 
-export function CategoryNav({ roots }: { roots: NavRoot[] }) {
+export function CategoryNav({ roots: initial }: { roots: NavRoot[] }) {
+  const roots = useNavTree(initial);
   const [open, setOpen] = useState<string | null>(null);
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => e.key === "Escape" && setOpen(null);
@@ -30,10 +32,10 @@ export function CategoryNav({ roots }: { roots: NavRoot[] }) {
       </div>
       {active && active.children.length > 0 && (
         <div className="absolute inset-x-0 top-full border-b border-line bg-white text-ink shadow-[0_24px_40px_-24px_rgba(0,0,0,0.25)]">
-          <div className="container-x grid grid-cols-3 gap-x-8 gap-y-6 py-6 lg:grid-cols-4">
-            {active.children.slice(0, 12).map((c) => (
+          <div className="container-x grid grid-cols-3 gap-x-8 gap-y-3 py-6 lg:grid-cols-4">
+            {active.children.map((c) => (
               <div key={c.slug}>
-                <Link href={`/c/${c.slug}`} className="font-semibold hover:text-accent-hover" onClick={() => setOpen(null)}>
+                <Link href={`/c/${c.slug}`} className="text-sm font-medium text-ink/80 hover:text-ink hover:underline underline-offset-4" onClick={() => setOpen(null)}>
                   {c.name}
                 </Link>
                 {c.children.length > 0 && (
@@ -57,13 +59,6 @@ export function CategoryNav({ roots }: { roots: NavRoot[] }) {
               </div>
             ))}
           </div>
-          {active.children.length > 12 && (
-            <div className="container-x pb-5">
-              <Link href={`/c/${active.slug}`} className="inline-flex items-center gap-1 text-sm font-semibold hover:text-accent-hover" onClick={() => setOpen(null)}>
-                {t.allIn} {active.name.toLowerCase()} <ChevronRight />
-              </Link>
-            </div>
-          )}
         </div>
       )}
     </nav>

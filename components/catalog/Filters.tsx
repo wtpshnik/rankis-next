@@ -2,7 +2,7 @@
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
-import type { ListQuery } from "@/lib/catalog";
+import type { ListQuery } from "@/lib/query";
 import { buildQuery } from "@/lib/search-params";
 import { Button } from "@/components/ui/Button";
 import { CloseIcon } from "@/components/ui/Icons";
