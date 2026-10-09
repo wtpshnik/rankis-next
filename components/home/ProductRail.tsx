@@ -1,22 +1,15 @@
-import Link from "next/link";
-import type { Product } from "@/lib/types";
+import type { CardProduct, Product } from "@/lib/types";
 import { ProductGrid } from "@/components/catalog/ProductGrid";
-import { ChevronRight } from "@/components/ui/Icons";
-import { t } from "@/lib/ui-text";
+import { SectionHead } from "./SectionHead";
 
-export function ProductRail({ title, href, products, className = "" }: { title: string; href?: string; products: Product[]; className?: string }) {
+export function ProductRail({ title, eyebrow, href, products, className = "" }: { title: string; eyebrow?: string; href?: string; products: (Product | CardProduct)[]; className?: string }) {
   if (products.length === 0) return null;
   return (
-    <section className={`container-x mt-12 ${className}`}>
-      <div className="mb-5 flex items-end justify-between">
-        <h2 className="text-2xl font-bold">{title}</h2>
-        {href && (
-          <Link href={href} className="inline-flex items-center gap-1 text-sm font-semibold hover:text-accent-hover">
-            {t.allIn} <ChevronRight />
-          </Link>
-        )}
+    <section className={`container-x mt-14 ${className}`}>
+      <SectionHead eyebrow={eyebrow} title={title} href={href} />
+      <div className="mt-6">
+        <ProductGrid products={products} />
       </div>
-      <ProductGrid products={products} />
     </section>
   );
 }

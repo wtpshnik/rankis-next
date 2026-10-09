@@ -1,19 +1,36 @@
 @import "tailwindcss";
 
 @theme {
-  --color-ink: #111111;
+  --color-ink: #0f0f10;
+  --color-ink-2: #1c1c1f;
   --color-muted: #6b7280;
-  --color-line: #e5e7eb;
+  --color-line: #e6e7ea;
   --color-accent: #ffd400;
-  --color-accent-hover: #e6bf00;
-  --color-surface: #f7f7f8;
+  --color-accent-hover: #ffe24d;
+  --color-accent-deep: #e6bf00;
+  --color-surface: #f5f5f4;
   --font-sans: var(--font-inter), system-ui, sans-serif;
-  --radius-card: 12px;
+  --font-display: var(--font-archivo), var(--font-inter), system-ui, sans-serif;
+  --radius-card: 16px;
+  --shadow-lift: 0 18px 40px -20px rgb(15 15 16 / 0.28);
+  --animate-marquee: marquee 40s linear infinite;
+  --animate-rise: rise 0.7s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+  --animate-rise-late: rise 0.7s cubic-bezier(0.2, 0.7, 0.2, 1) 0.15s both;
+}
+
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+@keyframes rise {
+  from { opacity: 0; transform: translateY(14px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
 html {
   color: var(--color-ink);
   background: #fff;
+  scroll-behavior: smooth;
 }
 
 body {
@@ -21,20 +38,53 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
+h1, h2, h3, .display {
+  font-family: var(--font-display);
+  letter-spacing: -0.02em;
+}
+
+::selection { background: var(--color-accent); color: var(--color-ink); }
+
 @utility container-x {
   margin-inline: auto;
   width: 100%;
-  max-width: 1280px;
+  max-width: 1320px;
   padding-inline: 1rem;
   @media (width >= 48rem) { padding-inline: 1.5rem; }
-  @media (width >= 64rem) { padding-inline: 2rem; }
+  @media (width >= 64rem) { padding-inline: 2.5rem; }
+}
+
+/* yellow highlighter behind a word */
+@utility mark-accent {
+  background-image: linear-gradient(transparent 58%, var(--color-accent) 58%, var(--color-accent) 92%, transparent 92%);
+  padding-inline: 0.08em;
+}
+
+/* subtle grain for dark blocks */
+@utility grain {
+  position: relative;
+  isolation: isolate;
+  &::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    opacity: 0.35;
+    background-image: radial-gradient(rgb(255 255 255 / 0.07) 0.6px, transparent 0.6px);
+    background-size: 3px 3px;
+    mix-blend-mode: overlay;
+  }
 }
 
 /* product description HTML (sanitized by scraper) */
 .rich p { margin-top: 0.75rem; }
-.rich h2, .rich h3 { margin-top: 1.5rem; font-weight: 600; }
+.rich h2, .rich h3 { margin-top: 1.5rem; font-weight: 600; font-size: 1.05rem; }
 .rich ul, .rich ol { margin-top: 0.75rem; padding-left: 1.25rem; }
 .rich ul { list-style: disc; }
 .rich ol { list-style: decimal; }
 .rich table { margin-top: 0.75rem; width: 100%; border-collapse: collapse; font-size: 0.875rem; }
 .rich td, .rich th { border: 1px solid var(--color-line); padding: 0.375rem 0.5rem; text-align: left; }
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-marquee, .animate-rise, .animate-rise-late { animation: none; }
+}
