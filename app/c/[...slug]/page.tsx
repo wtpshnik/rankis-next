@@ -33,9 +33,9 @@ export default async function CategoryPage({ params, searchParams }: Props) {
       <Breadcrumbs items={getAncestors(slug)} current={cat.name} />
       <h1 className="mt-3 text-3xl font-bold md:text-4xl">{cat.name}</h1>
       {children.length > 0 && (
-        <div className="mt-5 flex flex-wrap gap-2">
+        <div className="-mx-4 mt-5 flex gap-2 overflow-x-auto px-4 pb-1 [scrollbar-width:none] md:mx-0 md:px-0 lg:flex-wrap">
           {children.map((c) => (
-            <Link key={c.slug} href={`/c/${c.slug}`} className="rounded-full border border-line px-3.5 py-1.5 text-sm font-medium transition-colors hover:border-ink">
+            <Link key={c.slug} href={`/c/${c.slug}`} className="shrink-0 rounded-full border border-line px-3.5 py-1.5 text-sm font-medium transition-colors hover:border-ink">
               {c.name}
             </Link>
           ))}
