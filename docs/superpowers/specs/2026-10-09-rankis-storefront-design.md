@@ -10,7 +10,7 @@
 
 ## Ограничения и решения
 
-- Стек: Next.js 15 (App Router), TypeScript, Tailwind CSS. Без UI-библиотек.
+- Стек: Next.js 16 (App Router, последняя стабильная), TypeScript, Tailwind CSS. Без UI-библиотек.
 - Папка: `C:\Users\MaksimNosovičTeronis\rankis-next`, свой git-репозиторий.
 - Данные: JSON-файлы в `data/`, собранные скриптом с текущего rankis.lt. Verskis API
   даёт только PATCH, поэтому источник — публичные страницы: `menu.xml` (категории) и
