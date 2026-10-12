@@ -1,1 +1,29 @@
-/* rankis2 — color */
+/* rankis2 — color.css: design tokens + text colors (ported from rankis-next app/globals.css) */
+:root {
+  --rk-ink: #0f0f10;
+  --rk-ink-2: #1c1c1f;
+  --rk-muted: #6b7280;
+  --rk-line: #e6e7ea;
+  --rk-accent: #ffd400;
+  --rk-accent-hover: #ffe24d;
+  --rk-accent-deep: #e6bf00;
+  --rk-surface: #f5f5f4;
+  --rk-green: #16a34a;
+  --rk-shadow-lift: 0 18px 40px -20px rgba(15, 15, 16, 0.28);
+}
+
+body { color: var(--rk-ink); }
+a { color: var(--rk-ink); }
+a:hover { color: var(--rk-accent-deep); }
+
+/* Verskis utility color classes used all over the markup */
+.c0, .c0 a { color: var(--rk-ink) !important; }
+.c1 { color: var(--rk-ink) !important; }
+.c3, .c3 a { color: var(--rk-ink) !important; }
+.c5, .c5 a { color: var(--rk-muted) !important; }
+.a0, .a1, .a2 { color: var(--rk-ink); }
+.a0:hover, .a1:hover, .a2:hover { color: var(--rk-accent-deep); }
+
+.success { color: var(--rk-green); }
+.error { color: #b91c1c; }
+.hot { background: var(--rk-accent); color: var(--rk-ink); }

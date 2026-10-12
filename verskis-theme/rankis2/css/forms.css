@@ -1,1 +1,57 @@
-/* rankis2 — forms */
+/* rankis2 — forms.css: inputs, selects, buttons */
+input.input-text, input[type="text"], input[type="email"], input[type="tel"], input[type="password"], input[type="number"], input[type="search"], textarea, select, .select, .select-small {
+  height: 44px;
+  padding: 0 14px !important;
+  border: 1px solid var(--rk-line) !important;
+  border-radius: 10px !important;
+  background: #fff !important;
+  color: var(--rk-ink) !important;
+  font-size: 14px !important;
+  box-shadow: none !important;
+  outline: none;
+  transition: border-color .15s;
+}
+textarea { height: auto; padding: 12px 14px !important; }
+input:focus, textarea:focus, select:focus { border-color: var(--rk-ink) !important; }
+select, .select, .select-small {
+  appearance: none; -webkit-appearance: none;
+  padding-right: 36px !important;
+  background: #fff url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%230f0f10' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><path d='m6 9 6 6 6-6'/></svg>") no-repeat right 12px center / 16px !important;
+}
+label { font-size: 13px; font-weight: 500; }
+input[type="checkbox"], input[type="radio"] { accent-color: var(--rk-ink); width: 16px; height: 16px; }
+
+/* Verskis buttons: .btn1 primary (yellow), .btn2 secondary (outline) */
+a.btn1, a.btn1:hover, a.btn1:active, .btn1, button.btn1, input.btn1,
+a.btn2, a.btn2:hover, a.btn2:active, .btn2, button.btn2, input.btn2 {
+  background-image: none !important;
+  display: inline-flex !important;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  height: 44px !important;
+  padding: 0 22px !important;
+  border-radius: 999px !important;
+  font-family: var(--rk-font) !important;
+  font-size: 14px !important;
+  font-weight: 600 !important;
+  line-height: 1 !important;
+  text-decoration: none !important;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: background-color .15s, box-shadow .2s, transform .1s, border-color .15s;
+  box-shadow: none !important;
+}
+a.btn1, .btn1, button.btn1, input.btn1 { background: var(--rk-accent) !important; color: var(--rk-ink) !important; border: 0 !important; }
+a.btn1:hover, .btn1:hover { background: var(--rk-accent-hover) !important; box-shadow: 0 10px 24px -10px rgba(255, 212, 0, .9) !important; }
+a.btn1:active, .btn1:active { transform: scale(.98); }
+a.btn2, .btn2, button.btn2, input.btn2 { background: #fff !important; color: var(--rk-ink) !important; border: 1px solid var(--rk-line) !important; }
+a.btn2:hover, .btn2:hover { border-color: var(--rk-ink) !important; }
+.btn1 span, .btn1 strong, .btn2 span, .btn2 strong { background: none !important; padding: 0 !important; margin: 0 !important; height: auto !important; line-height: 1 !important; float: none !important; color: inherit !important; }
+.btn1 strong, .btn2 strong { font-weight: 600 !important; }
+
+/* quantity stepper (product page and cart) */
+.add-cart-advanced-container { display: inline-flex; align-items: stretch; height: 44px; border: 1px solid var(--rk-line); border-radius: 10px; overflow: hidden; margin-right: 10px; vertical-align: middle; }
+.add-cart-advanced-container .adjust_quantity { display: flex; align-items: center; justify-content: center; width: 40px; font-size: 18px; color: var(--rk-muted); cursor: pointer; user-select: none; background: none !important; }
+.add-cart-advanced-container .adjust_quantity:hover { background: var(--rk-surface) !important; color: var(--rk-ink); }
+.add-cart-advanced-container input.items-number { width: 48px !important; height: 100% !important; border: 0 !important; border-left: 1px solid var(--rk-line) !important; border-right: 1px solid var(--rk-line) !important; border-radius: 0 !important; text-align: center; font-weight: 600 !important; }

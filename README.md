@@ -8,6 +8,7 @@ npm run scrape       # собрать data/categories.json и data/products.json
 npm run dev          # http://localhost:3000
 npm test             # vitest: парсеры, каталог, параметры
 npm run e2e          # playwright smoke (desktop + mobile), поднимает dev-сервер сам
+npm run lab          # стенд скина для Verskis: http://localhost:4100 (verskis-theme/)
 npm run build        # статический экспорт в out/ (на GitHub Pages собирается с NEXT_PUBLIC_BASE_PATH=/rankis-next)
 ```
 
@@ -15,3 +16,5 @@ npm run build        # статический экспорт в out/ (на GitHu
 
 Документы: `docs/superpowers/specs/` (дизайн), `docs/superpowers/plans/` (план).
 Данные читает только `lib/catalog.ts` — на этапе бэкенда заменяется на БД без правки страниц.
+
+Скин для Verskis: `verskis-theme/rankis2/` (CSS-шаблон), `verskis-theme/admin/` (HTML-блоки главной + INSTRUKCIJA.md), стенд `verskis-theme/lab/`, скриншоты `node verskis-theme/lab/shot.mjs`.
