@@ -1,0 +1,40 @@
+#content-wrap select, #content-wrap .select-small, #content-wrap .input-small, #content-wrap .input-text, #contact_form input, #contact_form textarea {
+    background: #fff !important;
+    border: 1px solid #d2d3d3;
+    color: #56584d;
+	height: 40px;
+	line-height: 40px;
+	padding-left: 10px;
+	box-sizing: border-box;
+	font-family: Arial, sans-serif;
+}
+#contact_form textarea {
+	height: 100px;
+}
+.cartInput {
+	height: 40px !important;
+	margin-top: 0px !important;
+	line-height: 40px !important;
+	text-align: center !Important;
+	box-sizing: border-box;
+}
+.page-product .options-add-to-cart .cartInput {
+	margin-right: 5px !important;
+	width: 50px;
+}
+#sortGoodsBy, #goodsPerPage {
+	height: auto !important;
+}
+.input-small {
+	padding: 5px 3px;
+}
+a#main-search-submit span {
+	display: none;
+}
+@media only screen and (max-width: 959px) {
+	.page-product .options-add-to-cart .cartInput {
+		margin-right: 0px !important;
+		margin-bottom: 5px !important;
+		width: 50%;
+	}
+}

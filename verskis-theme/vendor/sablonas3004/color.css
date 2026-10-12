@@ -1,0 +1,72 @@
+body{color:#121212}
+a{color:#5679E8}
+body #checkout_wrap #checkout_main_form .checkout-left #delivery-address, body #content-wrap #account_flyout ul li a:hover {
+	color: #5679E8 !important;
+}
+body #checkout_wrap #checkout_main_form {
+	accent-color: #5679E8;
+}
+.subcategories-wrapper .item:hover a, body #content-wrap #account_flyout ul li a:hover {
+	color: #5679E8 !important;
+}
+body #checkout_wrap #checkout_main_form .checkout-left .payment_list .method_choice.active a,
+body #checkout_wrap #checkout_main_form .checkout-left .payment_list .choose-bank-list .choose-bank.choosen-bank a,
+body #checkout_wrap #checkout_main_form .checkout-left .method-container.active a,
+body #checkout_wrap #checkout_main_form .checkout-left .shipping-other .shipping_list .method_choice.active a,
+.values_as_images .value_item.selected .value_image, .values_as_images .value_image.no_image:hover {
+	border-color: #5679E8 !important;
+}
+.c0, a.c0, .c0 a{color:#555}
+a.c1, .c1, .c1 a{color: #5679E8}
+.c2, .c2 a, a.c2{color: #121212 !important}
+#content-wrap a.c3, #content-wrap .c3 a, #content-wrap .c3 {color: #7d7d7d !important}
+#top-line a#login_fly_off.c3,
+#top-line a#forgot.c3,
+#top-line a#account_fly_off.c3{color: #7d7d7d !important}
+#logged-user{
+    color: #000
+}
+#top-line .register-now a.c3, #top-line .register-now a.c3:hover {
+	color: #000 !important;
+}
+#top-line .register-now a.c3:hover {
+	text-decoration: underline !Important;
+}
+.c5, .c5 a, a.c5{color:#909090 !important}
+.c6, .c6 a, a.c6{color:#7d7d7d !important}
+#top-line a.c3, #currency span.c3, #top-line label {color: #838387 !important; text-decoration: none !important;}
+#top-line a:hover.c5, #top-line a.c3:hover {color: #7d7d7d !important; text-decoration: underline !important;}
+
+.bg0{background-color:#fff !important}
+.bg1{background-color:#f0f0f0 !important}
+.bg10{background:#5179aa;}
+
+.head h4, .head .block-heading {color: #fff !important}
+#free_delivery_price_left, .till-minimum-order-amount{color: #838387}
+
+#content-wrap .level1 li > a,
+#mobile-menu .level1 li > a {color: #3F3F4F !important;font-weight: 400 !important;font-size: 15px !important;}
+#content-wrap .level1 li > a:hover,
+#mobile-menu .level1 li > a:hover{color: #5679E8 !important;}
+#content-wrap .level1 li.active > a,
+#mobile-menu .level1 li.active > a {color: #3F3F4F !important;font-weight: 600 !important;}
+#content-wrap .level1 li .level2 li > a,
+#mobile-menu .level1 li .level2 li > a {color: #3F3F4F !important;font-size: 13px !important;font-weight: 400 !important;}
+#content-wrap .level1 li .level2 li > a:hover,
+#mobile-menu .level1 li .level2 li > a:hover {color: #5679E8 !important;}
+#content-wrap .level1 li .level2 li.active > a,
+#mobile-menu .level1 li .level2 li.active > a {color: #5679E8 !important;font-weight: 600 !important;}
+#content-wrap .level1 li .level2 li.active .level3 li a,
+#mobile-menu .level1 li .level2 li.active .level3 li a {color: #3F3F4F !important;font-size: 13px !important;}
+#content-wrap .level1 li .level2 li.active .level3 li > a:hover, 
+#mobile-menu .level1 li .level2 li.active .level3 li > a:hover {color: #5679E8 !important;font-size: 13px !important;}
+#content-wrap .level1 li .level2 li.active .level3 li.active a,
+#mobile-menu .level1 li .level2 li.active .level3 li.active a {color: #3F3F4F !important;font-size: 13px !important;}
+#content-wrap .level1 li .level2 li.active .level3 li.active .level4 li a,
+#mobile-menu .level1 li .level2 li.active .level3 li.active .level4 li a {color: #3F3F4F !important}
+#content-wrap .level1 li .level2 li.active .level3 li.active .level4 li a:hover,
+#mobile-menu .level1 li .level2 li.active .level3 li.active .level4 li a:hover {color: #5679E8 !important; text-decoration: underline !Important;}
+#content-wrap .level1 li .level2 li.active .level3 li.active .level4 li.active > a,
+#mobile-menu .level1 li .level2 li.active .level3 li.active .level4 li.active > a {color: #3F3F4F !important; font-weight: normal !Important;text-decoration: underline !Important;}
+
+#content-wrap h2, #content-wrap h1, #content-wrap .block h2, #content-wrap h2 a, #content-wrap h1 a, #content-wrap h1 .c0, #content-wrap h2 .c0 {color: #121212 !important}
